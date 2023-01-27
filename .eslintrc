@@ -1,0 +1,10 @@
+{
+  "plugins": ["vue", "tailwindcss"],
+  "extends": [
+    "plugin:vue/vue3-recommended",
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:tailwindcss/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": ["node_modules/", ".nuxt/", ".output", "dist/", "node-jiti/"]
+}
