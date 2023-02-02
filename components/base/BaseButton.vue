@@ -1,13 +1,14 @@
 <template>
-    <button class="bg-mc-blue text-white font-display font-bold rounded-full inline-block py-1 px-3">
+    <button class="inline-block rounded-full bg-mc-blue py-1 px-3 font-display font-bold text-white" :class="{'p-8': props.isLarge}">
         {{ props.text }}
     </button>
 </template>
 
 <script setup lang="ts">
 
-interface Props {
+type Props = {
     text: String
+    isLarge: Boolean
 }
 
 const props = defineProps<Props>()
