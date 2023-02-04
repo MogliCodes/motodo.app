@@ -1,8 +1,11 @@
 <template>
-  <div class="flex justify-between  bg-white bg-opacity-75 py-8 px-6">
-    <span class="text-lg">Learn 10 spanish verbs</span>
+  <div class="flex justify-between bg-white bg-opacity-50 py-8 px-6">
+    <div>
+      <span class="text-xl font-bold">{{  $attrs.title }}</span><br>
+      <span>{{ $attrs.description }}</span>
+    </div>
     <div class="">
-      <slot name="status"></slot>
+      <TodoStatusPill :text="$attrs.status" />
     </div>
   </div>
 </template>
@@ -11,4 +14,5 @@
 
 // const props = defineProps<{}>()
 
+import TodoStatusPill from "~/components/todos/TodoStatusPill.vue";
 </script>
