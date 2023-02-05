@@ -10,7 +10,6 @@
 
 <script setup lang="ts">
 const client = useSupabaseAuthClient();
-const router = useRouter();
 
 async function login(provider: "github" | "google" | "gitlab" | "bitbucket") {
   const { error } = await client.auth.signInWithOAuth({

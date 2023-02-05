@@ -1,7 +1,7 @@
 <template>
-  <section class="shadow-lg">
+  <section>
     <BaseHeadline text="Your todos" />
-    <div class="flex flex-col gap-0.5 rounded-t-2xl rounded-b-2xl overflow-hidden">
+    <div class="flex flex-col gap-0.5 overflow-hidden rounded-2xl shadow-lg">
       <TodoItem v-for="todo in $attrs.todos" v-bind="todo" :key="todo.id" />
     </div>
   </section>

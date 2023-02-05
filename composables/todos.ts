@@ -11,9 +11,9 @@ export const fetchTodos = async () => {
 
 export const createTodo =  async (todo : any) => {
     const client = useSupabaseClient()
-    console.log(todo)
+    console.log('todo', todo)
     // @ts-ignore
-    const res = await client.from('todos').insert({ id: '3', title: 'Create todo item'})
+    const res = await client.from('todos').insert({ id: '4', title: todo})
     console.log('res', res)
     return res
 }

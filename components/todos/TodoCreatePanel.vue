@@ -1,16 +1,22 @@
 <template>
   <section>
-    <BaseHeadline text="Add a new todo" />
+    <BaseHeadline text="Add a new todo"/>
     <div class="mb-24 flex gap-8">
-      <BaseInput />
-      <BaseButton @click="createTodo(todoInput)" class="w-2/12 text-2xl" :is-large="true" text="Add todo" />
+      <div class="flex w-full flex-col items-center justify-center gap-4">
+        <BaseInput :model-value="todoTitle" placeholder="Add a title"
+                   @update:modelValue="newValue => todoTitle = newValue"/>
+        <BaseInput :model-value="todoDescription" placeholder="Add a description"
+                   @update:modelValue="newValue => todoDescription = newValue"/>
+      </div>
+      <BaseButton :is-large="true" class="w-2/12 text-2xl" text="Add todo" @click="createTodo(todoInput)"/>
     </div>
   </section>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import {createTodo} from "~/composables/todos";
 
-const todoInput = ref()
+const todoTitle = ref()
+const todoDescription = ref()
 
 </script>
