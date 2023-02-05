@@ -1,7 +1,7 @@
 <template>
   <section>
     <BaseHeadline text="Add a new todo"/>
-    <div class="mb-24 flex gap-8">
+    <div class="mb-24 flex items-center gap-8">
       <div class="flex w-full flex-col items-center justify-center gap-4">
         <BaseInput :model-value="todoTitle" placeholder="Add a title"
                    @update:modelValue="newValue => todoTitle = newValue"/>
