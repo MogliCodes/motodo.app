@@ -1,4 +1,4 @@
-
+import { v4 as uuidv4 } from 'uuid';
 
 export const fetchTodos = async () => {
     const client = useSupabaseClient()
@@ -9,11 +9,12 @@ export const fetchTodos = async () => {
     return todos
 }
 
-export const createTodo =  async (todo : any) => {
+export const createTodo =  async (todoTitle : string, todoDescription: string) => {
     const client = useSupabaseClient()
-    console.log('todo', todo)
+    // console.log('todo', todo)
     // @ts-ignore
-    const res = await client.from('todos').insert({ id: '4', title: todo})
+    const res = await client.from('todos').insert({ id: Math.floor(100000 + Math.random() * 900000), title: todoTitle, description: todoDescription, status: 'todo' })
     console.log('res', res)
+    refreshNuxtData()
     return res
 }
