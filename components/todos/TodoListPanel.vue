@@ -7,5 +7,5 @@
   </section>
 </template>
 <script setup lang="ts">
-import TodoItem from "~/components/todos/TodoItem.vue";
+import TodoItem from '~/components/todos/TodoItem.vue'
 </script>
