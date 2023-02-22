@@ -8,7 +8,8 @@
         <BaseInput :model-value="todoDescription" placeholder="Add a description"
                    @update:modelValue="newValue => todoDescription = newValue"/>
       </div>
-      <BaseButton :is-large="true" class="w-2/12 text-2xl" text="Add todo" @click="createTodo(todoInput)"/>
+      <BaseButton :is-large="true" class="w-2/12 text-2xl" text="Add todo"
+                  @click="createTodo(todoTitle, todoDescription)"/>
     </div>
   </section>
 </template>
