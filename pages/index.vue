@@ -2,7 +2,7 @@
   <main class="pt-24">
     <div class="container mx-auto">
       <TransitionGroup name="list" tag="div">
-        <BaseAlert v-if="display" text="Todo has been saved successfully!" @click="display = false"/>
+        <BaseAlert text="Todo has been saved successfully!" @click="display = false"/>
         <TodoCreatePanel/>
         <TodoListPanel :todos="todos"/>
       </TransitionGroup>
@@ -13,14 +13,14 @@
 import TodoCreatePanel from "~/components/todos/TodoCreatePanel.vue";
 import TodoListPanel from "~/components/todos/TodoListPanel.vue";
 import {fetchTodos} from "~/composables/todos";
-
+import {useTodosStore} from "~/stores/todos"
 
 definePageMeta({
   middleware: 'auth'
 })
 
+const store = useTodosStore()
 const todos = await fetchTodos()
-
 const display = ref(true)
 
 </script>
