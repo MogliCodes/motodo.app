@@ -4,7 +4,7 @@
     <form
         action=""
         class="mb-24 flex items-center gap-8"
-        @submit.prevent="createTodo(todoTitle, todoDescription)"
+        @submit.prevent="handleSubmit(todoTitle, todoDescription)"
     >
       <div class="flex w-full flex-col items-center justify-center gap-4">
         <BaseInput
@@ -35,4 +35,13 @@ import {createTodo} from '~/composables/todos'
 
 const todoTitle = ref()
 const todoDescription = ref()
+
+async function handleSubmit(_todoTitle: string, _todoDescription: string) {
+  const res = await createTodo(_todoTitle, _todoDescription)
+  if(res === 201) {
+    todoTitle.value = ''
+    todoDescription.value = ''
+  }
+}
+
 </script>

@@ -1,11 +1,9 @@
 <template>
   <main class="pt-24">
     <div class="container mx-auto">
-      <TransitionGroup name="list" tag="div">
-        <BaseAlert text="Todo has been saved successfully!" @click="display = false"/>
+        <BaseAlert v-if="store.$state.showAlert" :text="store.$state.alert" @click="display = false"/>
         <TodoCreatePanel/>
         <TodoListPanel :todos="todos"/>
-      </TransitionGroup>
     </div>
   </main>
 </template>
