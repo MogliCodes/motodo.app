@@ -16,9 +16,9 @@ import {useTodosStore} from "~/stores/todos"
 definePageMeta({
   middleware: 'auth'
 })
-
+const user = useSupabaseUser()
 const store = useTodosStore()
-const todos = await fetchTodos()
+const todos = await fetchTodos(user?.value?.id)
 const display = ref(true)
 
 </script>

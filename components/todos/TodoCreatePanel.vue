@@ -33,11 +33,12 @@
 <script lang="ts" setup>
 import {createTodo} from '~/composables/todos'
 
+const user = useSupabaseUser()
 const todoTitle = ref()
 const todoDescription = ref()
 
-async function handleSubmit(_todoTitle: string, _todoDescription: string) {
-  const res = await createTodo(_todoTitle, _todoDescription)
+async function handleSubmit(_todoTitle: string, _todoDescription: string, userId: string) {
+  const res = await createTodo(_todoTitle, _todoDescription, user?.value?.id || '')
   if(res === 201) {
     todoTitle.value = ''
     todoDescription.value = ''

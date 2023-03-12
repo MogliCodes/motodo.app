@@ -7,7 +7,9 @@
       ><br />
       <span :class="todoClasses">{{ $attrs.description }}</span>
     </div>
-    <div class="">
+    <div class="flex gap-4 items-center">
+      <BaseIcon icon="edit" />
+      <BaseIcon icon="delete" />
       <TodoStatusPill :text="$attrs.status" />
     </div>
   </div>
