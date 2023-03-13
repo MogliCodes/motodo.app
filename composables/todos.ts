@@ -1,16 +1,18 @@
 import {useTodosStore} from "~/stores/todos";
 
 const store = useTodosStore()
-export const fetchTodos = async (userId: string) => {
+export const fetchTodos = async (userId: string ) => {
     const client = useSupabaseClient()
     console.log('userId', userId)
     const {data: todos} = await useAsyncData('todos', async () => {
+        // eslint-disable-next-line max-len
         const {data} = await client.from('todos').select('id, title, description, status, due_date, userId').eq('userId', userId)
         return data
     })
     return todos
 }
 
+// eslint-disable-next-line max-len
 export const createTodo = async (todoTitle: string, todoDescription: string, userId: string) => {
 
     const client = useSupabaseClient()
@@ -18,6 +20,7 @@ export const createTodo = async (todoTitle: string, todoDescription: string, use
         id: numericUUID(),
         title: todoTitle,
         description: todoDescription,
+        status: 'todo',
         userId
     }
     // @ts-ignore
@@ -34,6 +37,14 @@ export const createTodo = async (todoTitle: string, todoDescription: string, use
     }
 
     return res.status
+}
+
+/**
+ * @param todoId
+ */
+export const deleteTodo = async (todoId: number) => {
+    const client = useSupabaseClient()
+    await client.from('todos').delete().eq('id', todoId)
 }
 
 function numericUUID() {
