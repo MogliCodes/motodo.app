@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default defineNuxtRouteMiddleware((to, _from) => {
-    const user = useSupabaseUser();
+  const user = useSupabaseUser()
 
-    if (!user.value) {
-        return navigateTo("/login");
-    }
-});
+  if (!user.value) {
+    return navigateTo('/login')
+  }
+})

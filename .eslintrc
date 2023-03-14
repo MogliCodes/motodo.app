@@ -4,10 +4,25 @@
     "plugin:vue/vue3-recommended",
     "@nuxtjs/eslint-config-typescript",
     "plugin:tailwindcss/recommended",
-    "prettier"
+    "prettier",
+    "plugin:prettier/recommended"
   ],
-  "ignorePatterns": ["node_modules/", ".nuxt/", ".output", "dist/", "node-jiti/"],
+  "settings": {
+    "tailwindcss": {
+      "config": "./tailwind.config.cjs"
+    }
+  },
   "rules": {
-    "max-len": 2
-  }
+    "prettier/prettier": "error",
+    "require-await": "off",
+    "tailwindcss/classnames-order": "error"
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    ".nuxt/",
+    ".output",
+    "dist/",
+    "node-jiti/"
+  ]
+
 }

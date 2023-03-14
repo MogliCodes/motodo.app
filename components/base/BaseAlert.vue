@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-mc-fern rounded-xl text-white p-4 mb-12 font-bold shadow-xl text-"
+    class="bg-mc-fern text- mb-12 rounded-xl p-4 font-bold text-white shadow-xl"
   >
     {{ $attrs.text }}
   </div>

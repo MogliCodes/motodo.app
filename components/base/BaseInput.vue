@@ -4,7 +4,7 @@
       :required="required"
       :placeholder="props.placeholder"
       :value="modelValue"
-      class="block w-full rounded-2xl bg-white bg-opacity-50 p-4 shadow-lg outline-mc-blue"
+      class="outline-mc-blue block w-full rounded-2xl bg-white bg-opacity-50 p-4 shadow-lg"
       type="text"
       @input="$emit('update:modelValue', $event.target.value)"
     />

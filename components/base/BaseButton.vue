@@ -1,7 +1,7 @@
 <template>
   <button
     :type="type"
-    class="inline-block rounded-full bg-mc-blue py-1 px-3 font-display font-bold text-white shadow-lg hover:bg-mc-lightblue"
+    class="bg-mc-blue font-display hover:bg-mc-lightblue inline-block rounded-full py-1 px-3 font-bold text-white shadow-lg"
     :class="{ 'py-4 px-8 text-xl': props.isLarge }"
   >
     {{ props.text }}

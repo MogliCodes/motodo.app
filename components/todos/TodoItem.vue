@@ -7,9 +7,13 @@
       ><br />
       <span :class="todoClasses">{{ $attrs.description }}</span>
     </div>
-    <div class="flex gap-4 items-center">
+    <div class="flex items-center gap-4">
       <BaseIcon class="cursor-pointer" icon="edit" />
-      <BaseIcon class="cursor-pointer" icon="delete" @click.native="handleDelete" />
+      <BaseIcon
+        class="cursor-pointer"
+        icon="delete"
+        @click.native="handleDelete"
+      />
       <TodoStatusPill :text="$attrs.status" />
     </div>
   </div>
@@ -17,7 +21,7 @@
 
 <script setup lang="ts">
 import TodoStatusPill from '~/components/todos/TodoStatusPill.vue'
-import {deleteTodo} from "~/composables/todos";
+import { deleteTodo } from '~/composables/todos'
 const attrs = useAttrs()
 
 const todoClasses = computed(() => {
@@ -27,8 +31,10 @@ const todoClasses = computed(() => {
   }
 })
 
+const emit = defineEmits(['todoDeleted'])
+
 function handleDelete() {
   deleteTodo(attrs.id as number)
+  emit('todoDeleted')
 }
-
 </script>
